@@ -11,10 +11,10 @@ public class ItemFactory
         _container = transform;
     }
 
-    public Item CreateItem(ItemInfo itemInfo)
+    public ITradable CreateItem(ItemInfo itemInfo)
     {
         Item item = Object.Instantiate(_prefab, _container);
-        item.Init(itemInfo, ItemOwner.Merchant);
+        item.Init(itemInfo, Owner.Merchant);
 
         return item;
     }

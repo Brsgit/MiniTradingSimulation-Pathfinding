@@ -7,7 +7,7 @@ public enum ItemRarity
     Unique,
 }
 
-public enum ItemOwner
+public enum Owner
 {
     Merchant,
     Player,

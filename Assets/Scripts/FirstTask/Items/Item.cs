@@ -5,19 +5,23 @@ public class Item : MonoBehaviour, ITradable
     private ItemInfo _info;
     public ItemInfo ItemInfo => _info;
 
-    private ItemOwner _owner;
-    public ItemOwner Owner => _owner;
+    private int _currentPrice;
+    public int CurrentPrice => _currentPrice;
+
+    private Owner _owner;
+    public Owner Owner => _owner;
 
     private ItemRarity _rarity;
 
     private ItemView _itemView;
 
 
-    public void Init(ItemInfo info, ItemOwner owner)
+    public void Init(ItemInfo info, Owner owner)
     {
         _info = info;
         // By default Merchant has all items on the beginning
         _owner = owner;
+        _currentPrice = ItemInfo.Price;
         _rarity = GetItemRarityAccordingToPrice(ItemInfo.Price);
         InitView();
     }
@@ -28,11 +32,17 @@ public class Item : MonoBehaviour, ITradable
         _itemView.Init(ItemInfo.Name, ItemInfo.Price, _rarity);
     }
 
+    public void UpdateOwner(Owner owner)
+    {
+        _owner = owner;
+        UpdatePrice();
+    }
+
     private void UpdatePrice()
     {
-        
-        var curPrice = _owner == ItemOwner.Merchant ? ItemInfo.Price : ItemInfo.Price * 0.5f;
-        _itemView.UpdateText(ItemInfo.Name, Mathf.CeilToInt(curPrice));
+
+        _currentPrice = Mathf.CeilToInt(_owner == Owner.Merchant ? ItemInfo.Price : ItemInfo.Price * 0.5f);
+        _itemView.UpdateText(ItemInfo.Name, _currentPrice);
     }
 
     private ItemRarity GetItemRarityAccordingToPrice(int price) => price switch

@@ -6,9 +6,9 @@ public class ItemGenerator
     private ItemFactory _factory;
     private ItemParser _parser;
 
-    private List<Item> _items = new List<Item>();
+    private List<ITradable> _items = new List<ITradable>();
 
-    public List<Item> GenerateItems(Item go, Transform container)
+    public List<ITradable> GenerateItems(Item go, Transform container)
     {
         _parser = new ItemParser();
         _factory = new ItemFactory(go, container);
