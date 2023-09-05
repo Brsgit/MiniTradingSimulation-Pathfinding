@@ -1,5 +1,7 @@
-
-public interface IObserver
+namespace Observer
 {
-    public void UpdateOwner(Owner owner);
+    public interface IObserver
+    {
+        public void UpdateOwner(Owner owner);
+    }
 }

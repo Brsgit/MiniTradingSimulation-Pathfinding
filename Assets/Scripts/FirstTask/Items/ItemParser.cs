@@ -1,16 +1,20 @@
+using Helper;
 using System.Collections.Generic;
 
-public class ItemParser 
-{    
-    public ItemInfo[] ParseFromJson(string json)
+namespace Items
+{
+    public class ItemParser
     {
-        var result = JsonHelper.FromJson<ItemInfo>(json);
-        return result;
-    }
+        public ItemInfo[] ParseFromJson(string json)
+        {
+            var result = JsonHelper.FromJson<ItemInfo>(json);
+            return result;
+        }
 
-    [System.Serializable]
-    public class ItemInfoList
-    {
-        public List<ItemInfo> Items;
+        [System.Serializable]
+        public class ItemInfoList
+        {
+            public List<ItemInfo> Items;
+        }
     }
 }

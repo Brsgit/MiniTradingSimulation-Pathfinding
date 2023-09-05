@@ -1,38 +1,40 @@
-using System;
-using UnityEngine;
+using Items;
 
-public class PurseController : IPurse
+namespace Purse
 {
-    private int _goldAmount;
-    public int GoldAmount => _goldAmount;
-
-    private PurseView _purseView;
-
-    public PurseController(int goldAmount, PurseView purseView)
+    public class PurseController : IPurse
     {
-        _goldAmount = goldAmount;
-        _purseView = purseView;
-    }
+        private int _goldAmount;
+        public int GoldAmount => _goldAmount;
 
-    public void Init()
-    {
-        UpdateView();
-    }
+        private PurseView _purseView;
 
-    public void OnBuy(ITradable item)
-    {
-        _goldAmount -= item.CurrentPrice;
-        UpdateView();
-    }
+        public PurseController(int goldAmount, PurseView purseView)
+        {
+            _goldAmount = goldAmount;
+            _purseView = purseView;
+        }
 
-    public void OnSell(ITradable item)
-    {
-        _goldAmount += item.CurrentPrice;
-        UpdateView();
-    }
+        public void Init()
+        {
+            UpdateView();
+        }
 
-    private void UpdateView()
-    {
-        _purseView.UpdateText(_goldAmount.ToString());
+        public void OnBuy(ITradable item)
+        {
+            _goldAmount -= item.CurrentPrice;
+            UpdateView();
+        }
+
+        public void OnSell(ITradable item)
+        {
+            _goldAmount += item.CurrentPrice;
+            UpdateView();
+        }
+
+        private void UpdateView()
+        {
+            _purseView.UpdateText(_goldAmount.ToString());
+        }
     }
 }

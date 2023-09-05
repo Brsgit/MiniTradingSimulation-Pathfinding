@@ -1,24 +1,27 @@
 using TMPro;
 using UnityEngine;
 
-public class PurseView : MonoBehaviour
+namespace Purse
 {
-    private TextMeshProUGUI _text;
-
-    private const string PURSE_TEXT = "Current Gold: ";
-
-    private void Awake()
+    public class PurseView : MonoBehaviour
     {
-        _text = GetComponentInChildren<TextMeshProUGUI>();
-    }
+        private TextMeshProUGUI _text;
 
-    public void UpdateText(string text)
-    {
-        if(_text == null)
+        private const string PURSE_TEXT = "Current Gold: ";
+
+        private void Awake()
         {
             _text = GetComponentInChildren<TextMeshProUGUI>();
         }
 
-        _text.text = PURSE_TEXT + text;
+        public void UpdateText(string text)
+        {
+            if (_text == null)
+            {
+                _text = GetComponentInChildren<TextMeshProUGUI>();
+            }
+
+            _text.text = PURSE_TEXT + text;
+        }
     }
 }

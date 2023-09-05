@@ -2,34 +2,37 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DraggableItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+namespace Items
 {
-    private Image _image;
-
-    //[HideInInspector]
-    public Transform _parent;
-
-    private void Awake()
+    public class DraggableItem : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
     {
-        _image = GetComponent<Image>();
-    }
+        private Image _image;
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        _parent = transform.parent;
-        transform.SetParent(transform.root);
-        transform.SetAsLastSibling();
-        _image.raycastTarget = false;
-    }
+        //[HideInInspector]
+        public Transform _parent;
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        transform.position = Input.mousePosition;
-    }
+        private void Awake()
+        {
+            _image = GetComponent<Image>();
+        }
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        transform.SetParent(_parent);
-        _image.raycastTarget = true;
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            _parent = transform.parent;
+            transform.SetParent(transform.root);
+            transform.SetAsLastSibling();
+            _image.raycastTarget = false;
+        }
+
+        public void OnDrag(PointerEventData eventData)
+        {
+            transform.position = Input.mousePosition;
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            transform.SetParent(_parent);
+            _image.raycastTarget = true;
+        }
     }
 }

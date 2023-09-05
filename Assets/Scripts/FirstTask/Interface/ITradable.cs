@@ -1,10 +1,13 @@
-public interface ITradable
+namespace Items
 {
-    int CurrentPrice { get; }
+    public interface ITradable
+    {
+        int CurrentPrice { get; }
 
-    Owner Owner { get; }
+        Owner Owner { get; }
 
-    ItemInfo ItemInfo { get; }
+        ItemInfo ItemInfo { get; }
 
-    void UpdateOwner(Owner owner);
+        void UpdateOwner(Owner owner);
+    }
 }

@@ -1,28 +1,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemGenerator
+namespace Items
 {
-    private ItemFactory _factory;
-    private ItemParser _parser;
-
-    private List<ITradable> _items = new List<ITradable>();
-
-    public List<ITradable> GenerateItems(Item go, Transform container)
+    public class ItemGenerator
     {
-        _parser = new ItemParser();
-        _factory = new ItemFactory(go, container);
+        private ItemFactory _factory;
+        private ItemParser _parser;
 
-        var jsonStr = Resources.Load<TextAsset>("Items/items01");
+        private List<ITradable> _items = new List<ITradable>();
 
-        var itemInfoList = _parser.ParseFromJson(jsonStr.ToString());
-
-        foreach(var itemInfo in itemInfoList)
+        public List<ITradable> GenerateItems(Item go, Transform container)
         {
-            var item = _factory.CreateItem(itemInfo);
-            _items.Add(item);
-        }
+            _parser = new ItemParser();
+            _factory = new ItemFactory(go, container);
 
-        return _items;
+            var jsonStr = Resources.Load<TextAsset>("Items/items01");
+
+            var itemInfoList = _parser.ParseFromJson(jsonStr.ToString());
+
+            foreach (var itemInfo in itemInfoList)
+            {
+                var item = _factory.CreateItem(itemInfo);
+                _items.Add(item);
+            }
+
+            return _items;
+        }
     }
 }

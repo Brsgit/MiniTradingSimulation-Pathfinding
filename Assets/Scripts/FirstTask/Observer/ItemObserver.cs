@@ -1,17 +1,20 @@
+using Items;
 
-
-public class ItemObserver : IObserver
+namespace Observer
 {
-    private ITradable _item;
-
-    public ItemObserver(ITradable item)
+    public class ItemObserver : IObserver
     {
-        _item = item;
-    }
+        private ITradable _item;
 
-    public void UpdateOwner(Owner owner)
-    {
-        _item.UpdateOwner(owner);
+        public ItemObserver(ITradable item)
+        {
+            _item = item;
+        }
+
+        public void UpdateOwner(Owner owner)
+        {
+            _item.UpdateOwner(owner);
+        }
+
     }
-    
 }

@@ -1,11 +1,15 @@
+using Items;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IPurse
+namespace Purse
 {
-    int GoldAmount { get; }
+    public interface IPurse
+    {
+        int GoldAmount { get; }
 
-    void OnSell(ITradable item);
-    void OnBuy(ITradable item);
+        void OnSell(ITradable item);
+        void OnBuy(ITradable item);
+    }
 }
