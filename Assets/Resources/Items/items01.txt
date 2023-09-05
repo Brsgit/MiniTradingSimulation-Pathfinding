@@ -1,0 +1,44 @@
+{
+	"Items": [
+  {
+    "Name": "Potion",
+    "Price": 10
+  },
+  {
+    "Name": "SPotion",
+    "Price": 5
+  },
+  {
+    "Name": "BPotion",
+    "Price": 15
+  },
+  {
+    "Name": "Sword",
+    "Price": 150
+  },
+  {
+    "Name": "Shield",
+    "Price": 100
+  },
+  {
+    "Name": "Rusty Sword",
+    "Price": 99
+  },
+  {
+    "Name": "Chest Armor",
+    "Price": 500
+  },
+  {
+    "Name": "Leg Armor",
+    "Price": 499
+  },
+  {
+    "Name": "Mini Teleport",
+    "Price": 1500
+  },
+  {
+    "Name": "BFG",
+    "Price": 5000
+  }
+]
+}
